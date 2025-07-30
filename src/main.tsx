@@ -7,17 +7,10 @@ import About from "./pages/About.tsx";
 import Projects from "./pages/Projects.tsx";
 import Recommendations from "./pages/Recommendations.tsx";
 import Contact from "./pages/Contact.tsx";
+import Shrimp from "./pages/Shrimp.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/recommendations" element={<Recommendations />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    <App />
   </StrictMode>
 );
