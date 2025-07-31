@@ -1,7 +1,11 @@
+import shrimp from "../assets/shrimp.png"
 
 const Shrimp = () => {
   return (
-    <div>Shrimp</div>
+    <div>
+      <p>The image below portrays shrimp activity.</p>
+      <img src={shrimp} alt="A shrimp busy at their computer." />
+    </div>
   )
 }
 

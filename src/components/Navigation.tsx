@@ -1,28 +1,33 @@
 import { NavLink } from "react-router";
+import ResumeDownload from "./buttons/ResumeDownload";
 
 interface NavigationProps {
   style?: "vertical" | "horizontal";
 }
 
 const Navigation = (props: NavigationProps) => {
-  // TODO: Adjust styling based on props
   return (
     <nav>
       <ul>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">About Me</NavLink>
         </li>
         <li>
           <NavLink to="/projects">Projects</NavLink>
         </li>
         <li>
-          <NavLink to="/recommendations">Recommendations</NavLink>
+          <NavLink to="/shrimp">Shrimp Activity?</NavLink>
         </li>
         <li>
-          <NavLink to="/shrimp">Shrimp Activity</NavLink>
+          <a href="https://github.com/shrimpactivity">GitHub</a>
         </li>
         <li>
-          <NavLink to="/contact">Contact</NavLink>
+          <a href="https://www.linkedin.com/in/carson-crow-29b83b254/">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <ResumeDownload />
         </li>
       </ul>
     </nav>
