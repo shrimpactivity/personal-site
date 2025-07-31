@@ -5,7 +5,7 @@ interface NavigationProps {
   style?: "vertical" | "horizontal";
 }
 
-const Navigation = (props: NavigationProps) => {
+const Navigation = (_props: NavigationProps) => {
   return (
     <nav>
       <ul>

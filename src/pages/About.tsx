@@ -1,6 +1,5 @@
 import ResumeDownload from "../components/buttons/ResumeDownload";
 import Tile from "../components/navigation/NavTile";
-import Navigation from "../components/Navigation";
 
 export const About = () => {
   return (
