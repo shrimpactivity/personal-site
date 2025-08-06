@@ -23,6 +23,7 @@
   font-weight: inherit;
   font-style: italic;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .nav-links li:hover {

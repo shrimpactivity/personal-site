@@ -18,7 +18,7 @@ body {
 
 .center {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .flex-column {
@@ -31,15 +31,41 @@ a {
   color: var(--primary);
 }
 
+h1,
+h2,
+h3 {
+  color: var(--secondary)
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
 .welcome {
   margin-top: 4em;
   text-align: center;
 }
 
+.page.about {
+  max-width: 700px;
+}
+
+.page.about .portrait {
+  width: 90%;
+  max-width: 400px;
+  margin-top: 2em;
+}
+
 .page.shrimp img {
   width: 90%;
-  max-width: 500px;
+  max-width: 600px;
   border: 2px solid var(--secondary);
+  margin-top: 2em;
 }
 
 .page.shrimp p {
