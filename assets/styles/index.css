@@ -1,0 +1,59 @@
+@import "./nav.css";
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+
+  --font-color: rgb(201, 230, 235);
+  --background: #06030e;
+  --primary: rgb(40, 231, 206);
+  --secondary: rgb(147, 255, 114);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--font-color);
+  margin: 1em;
+}
+
+.center {
+  display: flex;
+  justify-content: center; 
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+a {
+  color: var(--primary);
+}
+
+.welcome {
+  margin-top: 4em;
+  text-align: center;
+}
+
+.page.shrimp img {
+  width: 90%;
+  max-width: 500px;
+  border: 2px solid var(--secondary);
+}
+
+.page.shrimp p {
+  text-align: center;
+}
+
+@media(max-width: 650px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 500px) {
+  :root {
+    font-size: 15px;
+  }
+}
