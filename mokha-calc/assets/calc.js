@@ -38,8 +38,24 @@ function calculateItemChance(inverseItemChances, excludeLevels = []) {
   return 1 - totalInverseChance;
 }
 
+function calculateExpectedDrops(completions, rates, excludeLevels = []) {
+  return Object.keys(completions).reduce((sum, level) => {
+    const exclude = excludeLevels.indexOf(Number(level)) !== -1;
+    if (exclude) {
+      return sum;
+    }
+    const levelRate = rates[level];
+    const expectedDrops = completions[level] * levelRate;
+    return sum + expectedDrops;
+  }, 0)
+}
+
 function calculateTotal(clothChance, staffChance, bootsChance) {
   return 1 - ((1 - clothChance) * (1 - staffChance) * (1 - bootsChance));
+}
+
+function formatNum(num) {
+  return Math.round(num * 10) / 10;
 }
 
 function formatPercent(num) {
@@ -66,12 +82,22 @@ function calculate() {
   const bootsChance = calculateItemChance(inverseItemChances, [2, 3]);
   const petChance = calculateItemChance(inversePetChances, [2, 3, 4, 5]);
 
+  const clothDrops = calculateExpectedDrops(completions, ITEM_RATES);
+  const staffDrops = calculateExpectedDrops(completions, ITEM_RATES, [2]);
+  const bootsDrops = calculateExpectedDrops(completions, ITEM_RATES, [2, 3]);
+  const petDrops = calculateExpectedDrops(completions, PET_RATES, [2, 3, 4, 5]);
+
   document.getElementById('cloth-result').innerText = formatPercent(clothChance);
   document.getElementById('staff-result').innerText = formatPercent(staffChance);
   document.getElementById('boots-result').innerText = formatPercent(bootsChance);
   document.getElementById('pet-result').innerText = formatPercent(petChance);
   document.getElementById('total-result').innerText = formatPercent(calculateTotal(clothChance, staffChance, bootsChance))
 
+  document.getElementById('cloth-drops').innerText = formatNum(clothDrops)
+  document.getElementById('staff-drops').innerText = formatNum(staffDrops)
+  document.getElementById('boots-drops').innerText = formatNum(bootsDrops)
+  document.getElementById('pet-drops').innerText = formatNum(petDrops)
+  document.getElementById('total-drops').innerText = formatNum(clothDrops + staffDrops + bootsDrops)
 }
 
 function addFormScroll() {
