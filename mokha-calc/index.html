@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <script src="./calc.js"></script>
+  <title>OSRS Mokha Calc</title>
+</head>
+
+<body>
+  <div class="page-container">
+
+
+    <div class="header">
+      <h1>Mokha Drop Calculator</h1>
+      <p>Enter your completions for each delve level, starting with level 2</p>
+    </div>
+    <div>
+      <form id="calc-form">
+        <table id="calc-table">
+          <thead>
+            <tr>
+              <th>Delve Level</th>
+              <th>Completions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td><input id="input-2" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><input id="input-3" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><input id="input-4" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><input id="input-5" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><input id="input-6" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><input id="input-7" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><input id="input-8" class="level-input" type="number"></td>
+            </tr>
+            <tr>
+              <td>9+</td>
+              <td><input id="input-9" class="level-input" type="number"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="display: flex; justify-content: center;">
+          <button type="Submit">Calculate</button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Chance to Obtain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mokhaiotl Cloth</td>
+            <td id="cloth-result"></td>
+          </tr>
+          <tr>
+            <td>Eye of Ayak</td>
+            <td id="staff-result"></td>
+          </tr>
+          <tr>
+            <td>Avernic Treads</td>
+            <td id="boots-result"></td>
+          </tr>
+          <tr>
+            <td>Any Item</td>
+            <td id="total-result"></td>
+          </tr>
+          <tr>
+            <td>Dom (Pet)</td>
+            <td id="pet-result"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
