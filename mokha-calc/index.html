@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./index.css">
-  <script src="./calc.js"></script>
-  <title>OSRS Mokha Calc</title>
+  <title>Mokha Calc</title>
+  <link rel="stylesheet" href="./assets/index.css">
 </head>
 
 <body>
-  <div class="page-container">
-
-
-    <div class="header">
+  <div class="container">
+    <header class="header">
+      <img src="./assets/Doom_of_Mokhaiotl.png" alt="The Doom of Mokhaiotl">
       <h1>Mokha Drop Calculator</h1>
-      <p>Enter your completions for each delve level, starting with level 2</p>
-    </div>
-    <div>
+      <p>Enter your completions for each delve level, starting with level 2.</p>
+      <p style="font-style: italic; font-size: 0.9em;">This information can be found on the scoreboard outside of
+        Mokha's arena.</p>
+    </header>
+
+    <main class="card">
       <form id="calc-form">
-        <table id="calc-table">
+        <table>
           <thead>
             <tr>
               <th>Delve Level</th>
@@ -29,44 +30,45 @@
           <tbody>
             <tr>
               <td>2</td>
-              <td><input id="input-2" class="level-input" type="number"></td>
+              <td><input id="input-2" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>3</td>
-              <td><input id="input-3" class="level-input" type="number"></td>
+              <td><input id="input-3" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>4</td>
-              <td><input id="input-4" class="level-input" type="number"></td>
+              <td><input id="input-4" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>5</td>
-              <td><input id="input-5" class="level-input" type="number"></td>
+              <td><input id="input-5" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>6</td>
-              <td><input id="input-6" class="level-input" type="number"></td>
+              <td><input id="input-6" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>7</td>
-              <td><input id="input-7" class="level-input" type="number"></td>
+              <td><input id="input-7" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>8</td>
-              <td><input id="input-8" class="level-input" type="number"></td>
+              <td><input id="input-8" class="level-input" type="number" min="0"></td>
             </tr>
             <tr>
               <td>9+</td>
-              <td><input id="input-9" class="level-input" type="number"></td>
+              <td><input id="input-9" class="level-input" type="number" min="0"></td>
             </tr>
           </tbody>
         </table>
-        <div style="display: flex; justify-content: center;">
-          <button type="Submit">Calculate</button>
+        <div class="btn-container">
+          <button type="submit" class="btn">Calculate</button>
         </div>
       </form>
-    </div>
-    <div>
+    </main>
+
+    <section class="card results-card" id="results">
       <table>
         <thead>
           <tr>
@@ -77,28 +79,30 @@
         <tbody>
           <tr>
             <td>Mokhaiotl Cloth</td>
-            <td id="cloth-result"></td>
+            <td id="cloth-result" class="result"></td>
           </tr>
           <tr>
             <td>Eye of Ayak</td>
-            <td id="staff-result"></td>
+            <td id="staff-result" class="result"></td>
           </tr>
           <tr>
             <td>Avernic Treads</td>
-            <td id="boots-result"></td>
+            <td id="boots-result" class="result"></td>
           </tr>
-          <tr>
+          <tr class="highlight-row">
             <td>Any Item</td>
-            <td id="total-result"></td>
+            <td id="total-result" class="result"></td>
           </tr>
           <tr>
             <td>Dom (Pet)</td>
-            <td id="pet-result"></td>
+            <td id="pet-result" class="result"></td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
   </div>
+
+  <script src="./assets/calc.js"></script>
 </body>
 
 </html>

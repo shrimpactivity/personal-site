@@ -1,0 +1,286 @@
+/* CSS Variables for dark red color scheme */
+:root {
+  --primary: #8B0000;
+  --primary-light: #A52A2A;
+  --primary-dark: #5C0000;
+  --secondary: #da6f6f;
+  --background: #1A0A0A;
+  --surface: #2D1B1B;
+  --surface-hover: #3D2424;
+  --text-primary: #F5F5F5;
+  --text-secondary: #CCCCCC;
+  --text-muted: #999999;
+  --border: #4A2F2F;
+  --border-light: #5A3737;
+  --shadow: rgba(139, 0, 0, 0.3);
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+/* Page container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Card styling */
+.card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border);
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Table headers */
+th {
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 600;
+  background: var(--primary-dark);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--primary);
+  font-size: 17px;
+}
+
+/* Table cells */
+td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+/* Alternate row styling */
+tr:nth-child(even) {
+  background: rgba(139, 0, 0, 0.05);
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+  background: var(--surface-hover);
+  transition: background-color 0.2s ease;
+}
+
+/* Number input styling */
+.level-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--background);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.level-input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px var(--shadow);
+  background: var(--surface);
+}
+
+.level-input:hover {
+  border-color: var(--border-light);
+}
+
+/* Remove spinner arrows */
+.level-input::-webkit-outer-spin-button,
+.level-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.level-input {
+  -moz-appearance: textfield;
+}
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  box-sizing: border-box;
+  user-select: none;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  box-shadow: 0 2px 6px var(--shadow), 0 0 0 1px var(--primary-dark);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--shadow), 0 0 0 1px var(--primary-dark);
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px var(--shadow), 0 0 0 1px var(--primary-dark);
+  filter: brightness(0.95);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* Button container */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Special styling for result cells */
+.result {
+  font-weight: 600;
+  color: var(--secondary);
+  text-align: left;
+  font-size: 16px;
+}
+
+/* Special row styling for "Any Item" */
+.highlight-row {
+  background: rgba(139, 0, 0, 0.1) !important;
+  font-weight: 600;
+}
+
+.highlight-row td {
+  border-top: 3px solid var(--border-light);
+  border-bottom: 3px solid var(--border-light);
+  font-size: 1.1em;
+}
+
+#results td, #results th {
+  font-size: 1.2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  table {
+    font-size: 15px;
+  }
+
+  th {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  td {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .level-input {
+    padding: 7px 10px;
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 15px;
+    min-height: 40px;
+  }
+
+  .result {
+    font-size: 15px;
+  }
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.1s;
+}

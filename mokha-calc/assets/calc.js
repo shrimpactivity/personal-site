@@ -1,19 +1,19 @@
 const ITEM_RATES = {
-  2: 1/2500,
-  3: 1/2000,
-  4: 1/1350,
-  5: 1/810,
-  6: 1/765,
-  7: 1/720,
-  8: 1/630,
-  9: 1/540
+  2: 1 / 2500,
+  3: 1 / 2000,
+  4: 1 / 1350,
+  5: 1 / 810,
+  6: 1 / 765,
+  7: 1 / 720,
+  8: 1 / 630,
+  9: 1 / 540
 }
 
 const PET_RATES = {
-  6: 1/1000,
-  7: 1/750,
-  8: 1/500,
-  9: 1/250
+  6: 1 / 1000,
+  7: 1 / 750,
+  8: 1 / 500,
+  9: 1 / 250
 }
 
 function getCompletionsFromInputs() {
@@ -27,7 +27,7 @@ function getCompletionsFromInputs() {
   return completions;
 }
 
-function calculateItemChance(inverseItemChances, excludeLevels=[]) {
+function calculateItemChance(inverseItemChances, excludeLevels = []) {
   const totalInverseChance = Object.keys(inverseItemChances).reduce((product, level) => {
     const exclude = excludeLevels.indexOf(Number(level)) !== -1;
     if (exclude) {
@@ -74,12 +74,34 @@ function calculate() {
 
 }
 
+function addFormScroll() {
+  const form = document.getElementById('calc-form');
+  const resultsSection = document.getElementById('results');
+
+  form.addEventListener('submit', function (e) {
+    setTimeout(() => {
+      resultsSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      resultsSection.setAttribute('tabindex', '-1');
+      resultsSection.focus();
+
+      setTimeout(() => {
+        resultsSection.removeAttribute('tabindex');
+      }, 100);
+    }, 50);
+  });
+}
+
 function main() {
   const form = document.getElementById("calc-form");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     calculate();
   })
+  addFormScroll();
 }
 
 document.addEventListener("DOMContentLoaded", main);
