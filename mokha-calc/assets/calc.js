@@ -55,7 +55,7 @@ function calculateTotal(clothChance, staffChance, bootsChance) {
 }
 
 function formatNum(num) {
-  return Math.round(num * 10) / 10;
+  return Math.round(num * 100) / 100;
 }
 
 function formatPercent(num) {
