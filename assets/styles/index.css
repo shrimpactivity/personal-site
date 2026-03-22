@@ -51,6 +51,10 @@ figcaption {
   text-align: center;
 }
 
+.welcome p {
+  margin: 0;
+}
+
 .page.about {
   max-width: 700px;
 }
