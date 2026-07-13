@@ -1,92 +1,106 @@
-@import "./base.css";
+/* ~*~ radical 90s geocities-style landing page ~*~
+   Deliberately NOT sharing base.css - this is its own chaotic thing,
+   separate from the calm calculator design system. */
 
-/* CSS Variables for dark teal / lime green color scheme (matches coxcalc) */
-:root {
-  --primary: #0d7377;
-  --primary-rgb: 13, 115, 119;
-  --primary-light: #2dd4bf;
-  --primary-light-rgb: 45, 212, 191;
-  --primary-dark: #063638;
-  --secondary: #a6e22e;
-  --tertiary: #dc9fff;
-  --background: #08120f;
-  --surface: #10221d;
-  --surface-hover: #17322b;
-  --text-primary: #F5F5F5;
-  --text-secondary: #CCCCCC;
-  --text-muted: #999999;
-  --border: #204b41;
-  --border-light: #2c6152;
-  --shadow: rgba(45, 212, 191, 0.3);
-  --btn-text: #04211f;
+@keyframes backgroundBreath {
+  0%, 100% { background-size: 105%; }
+  50% { background-size: 125%; }
+}
+
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  16% { color: #ff9900; }
+  33% { color: #ffff00; }
+  50% { color: #33ff00; }
+  66% { color: #0099ff; }
+  83% { color: #6600ff; }
+  100% { color: #ff0000; }
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 10px;
+  padding: 0;
+  background-image: url("./img/stars-background.jpg");
+  color: #000000;
+  font-family: "Courier New", Courier, monospace;
+  cursor: url("./img/dscim-cursor.png"), grab;
+  animation: backgroundBreath 20s ease-in-out infinite;
 }
 
-.container {
-  max-width: 640px;
-  padding: 40px 16px;
+.marquee-top {
+  background: lime;
+  color: blue;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 0;
+  height: 50px;
+  border: 4px ridge blue;
+  cursor: progress;
 }
 
-.header {
-  margin-bottom: 32px;
+.title {
+  background-color: rgb(45, 11, 61);
+  border: 3px double lime;
+  width: 30%;
+  margin: 10px 30px 0 20px;
+  padding: 0 0 0 20px;
+  color: aqua;
 }
 
-/* Calculator link cards */
-.calc-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+.title h1 {
+  font-size: 2rem;
 }
 
-.calc-card {
+.title h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: normal;
+  font-style: italic;
+  color: fuchsia;
+  text-shadow: 1px 1px 3px white;
+}
+
+.links {
+  background-color: black;
+  padding: 30px;
+  width: 600px;
+  border: 5px dotted green;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 220px;
-  padding: 24px 20px;
-  background: var(--surface);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border);
-  text-decoration: none;
-  color: var(--text-primary);
-  transition: all 0.2s ease;
 }
 
-.calc-card:hover {
-  transform: translateY(-3px);
-  background: var(--surface-hover);
-  box-shadow: 0 6px 16px var(--shadow), 0 0 0 1px var(--primary-light);
+.links__link {
+  margin: 20px 0;
 }
 
-.calc-card__icon {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  margin-bottom: 16px;
+.links__link:hover {
+  box-shadow: 10px 10px 10px 10px lime;
 }
 
-.calc-card__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary-light);
-  text-align: center;
+.links__link a {
+  animation: rainbow 3s linear infinite;
+  text-shadow: 3px 3px 0 #000000;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: zoom-in;
+  
 }
 
-.calc-card__subtitle {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-top: 4px;
-  text-align: center;
+.quote-of-the-day {
+  position: absolute;
+  bottom: 0px;
+  background: black;
+  color: lime;
 }
 
-@media (max-width: 500px) {
-  .calc-card {
-    width: 100%;
-  }
+.zulrah {
+  position: absolute;
+  right: 0;
+}
+
+.counter {
+  display: inline-block;
+  background-color: yellow;
+  margin: 10px;
 }
