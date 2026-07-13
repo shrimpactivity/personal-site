@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoX Points Calc</title>
+    <title>CoX Loot Calc</title>
     <link rel="stylesheet" href="./assets/index.css">
 
 </head>
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="header">
             <h1>Chambers of Xeric</h1>
-            <h2>Points Calculator</h2>
+            <h2>Loot Calculator</h2>
         </div>
 
         <div id="input-section">
@@ -21,39 +21,48 @@
                 <img src="./assets/img/olm.png" alt="The Great Olm" width="200px">
             </div>
             <p class="header__subtitle">
-                <span id="rune-instruction">
+                <span id="gem-instruction">
                     Have all your raids in the loot tracker and want to see your total points and stats?<br>
-                    Enter the number of death, blood, and soul runes received from Chambers below.
+                    Enter the number of gems received from Chambers below.
                 </span>
                 <span id="purples-instruction" hidden>Check your collection log and enter the total number of purples you've received.</span>
             </p>
-            <form action="" id="calc-form">
+            <form action="" id="gem-form">
                 <div class="fields-row">
                     <div class="field">
                         <label class="field__label">
                             <span class="field__label-text">
-                                <img src="./assets/img/death-rune.png" alt="" class="field__icon">
-                                Death Runes
+                                <img src="./assets/img/sapphire.png" alt="" class="field__icon">
+                                Sapphires
                             </span>
-                            <input type="number" id="death-input" class="field__input" required/>
+                            <input type="number" id="sapphire-input" class="field__input" min="0"/>
                         </label>
                     </div>
                     <div class="field">
                         <label class="field__label">
                             <span class="field__label-text">
-                                <img src="./assets/img/blood-rune.png" alt="" class="field__icon">
-                                Blood Runes
+                                <img src="./assets/img/emerald.png" alt="" class="field__icon">
+                                Emeralds
                             </span>
-                            <input type="number" id="blood-input" class="field__input" required/>
+                            <input type="number" id="emerald-input" class="field__input" min="0"/>
                         </label>
                     </div>
                     <div class="field">
                         <label class="field__label">
                             <span class="field__label-text">
-                                <img src="./assets/img/soul-rune.png" alt="" class="field__icon">
-                                Soul Runes
+                                <img src="./assets/img/ruby.png" alt="" class="field__icon">
+                                Rubies
                             </span>
-                            <input type="number" id="soul-input" class="field__input" required/>
+                            <input type="number" id="ruby-input" class="field__input" min="0"/>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="field__label">
+                            <span class="field__label-text">
+                                <img src="./assets/img/diamond.png" alt="" class="field__icon">
+                                Diamonds
+                            </span>
+                            <input type="number" id="diamond-input" class="field__input" min="0"/>
                         </label>
                     </div>
                 </div>
@@ -61,7 +70,7 @@
                     <button type="submit" class="btn">Submit</button>
                 </div>
             </form>
-            <p class="footnote" id="rune-footnote">
+            <p class="footnote" id="gem-footnote">
                 Don't have all your raids in the loot tracker?
                 <a href="#" id="purples-link" class="link">Use your collection log</a> for a rougher estimate.
             </p>
@@ -71,7 +80,7 @@
                     <div class="field">
                         <label class="field__label">
                             <span class="field__label-text">Total Purples</span>
-                            <input type="number" id="purples-input" class="field__input" required/>
+                            <input type="number" id="purples-input" class="field__input" min="0" required/>
                         </label>
                     </div>
                 </div>
@@ -80,7 +89,7 @@
                 </div>
             </form>
             <p class="footnote" id="purples-footnote" hidden>
-                <a href="#" id="runes-link" class="link">Use your rune counts</a> instead for a more precise estimate.
+                <a href="#" id="gems-link" class="link">Use your gem counts</a> instead for a more precise estimate.
             </p>
         </div>
 

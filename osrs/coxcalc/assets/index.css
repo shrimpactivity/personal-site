@@ -103,7 +103,6 @@ body {
 }
 
 .field__label {
-  display: block;
   font-weight: 600;
   color: var(--text-secondary);
   font-size: 0.95rem;

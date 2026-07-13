@@ -1,12 +1,14 @@
 const POINTS_PER_RAID = 50000;
+const POINTS_PER_PURPLE = 867600;
 
-const POINTS_PER_RUNE = {
-    death: 630.756,
-    blood: 560.475,
-    soul: 350.189
+const POINTS_PER_GEM = {
+    sapphire: 3304.693,
+    emerald: 2487.562,
+    ruby: 4248.088,
+    diamond: 8928.571
 };
 
-const POINTS_PER_REWARD = {
+const POINTS_PER_ITEM = {
     "Arcane": 2993000.0,
     "Dex": 2993000.0,
     "Dragon Hunter Crossbow": 14964500.0,
@@ -30,24 +32,25 @@ function formatPercent(num) {
     return `${round(num * 100, 2)}%`;
 }
 
-function calcTotalPoints(deaths, bloods, souls) {
+function calcTotalPoints(sapphire, emerald, ruby, diamond) {
     const totals = [
-        deaths * POINTS_PER_RUNE.death,
-        bloods * POINTS_PER_RUNE.blood,
-        souls * POINTS_PER_RUNE.soul
+        sapphire * POINTS_PER_GEM.sapphire,
+        emerald * POINTS_PER_GEM.emerald,
+        ruby * POINTS_PER_GEM.ruby,
+        diamond * POINTS_PER_GEM.diamond
     ]
     const avg = Math.round(totals.reduce((acc, val) => acc + val, 0) / totals.length)
     return avg;
 }
 
 function calcTotalPointsFromPurples(purples) {
-    return purples * 867600
+    return purples * POINTS_PER_PURPLE
 }
 
 function calcExpectedItems(totalPoints) {
     let result = {}
-    Object.keys(POINTS_PER_REWARD).forEach(item => {
-        const expected = totalPoints / POINTS_PER_REWARD[item]
+    Object.keys(POINTS_PER_ITEM).forEach(item => {
+        const expected = totalPoints / POINTS_PER_ITEM[item]
         result[item] = round(expected, 2);
     });
 
@@ -56,8 +59,8 @@ function calcExpectedItems(totalPoints) {
 
 function calcItemRates() {
     const result = {};
-    Object.keys(POINTS_PER_REWARD).forEach(item => {
-        result[item] = POINTS_PER_RAID / POINTS_PER_REWARD[item]
+    Object.keys(POINTS_PER_ITEM).forEach(item => {
+        result[item] = POINTS_PER_RAID / POINTS_PER_ITEM[item]
     })
 
     return result;
@@ -76,7 +79,7 @@ function calcItemChances(totalPoints) {
 }
 
 function calcTotalItems(totalPoints) {
-    return Math.floor(totalPoints / 867600.0)
+    return Math.floor(totalPoints / POINTS_PER_PURPLE)
 }
 
 function showResults(points) {
@@ -88,7 +91,7 @@ function showResults(points) {
     document.getElementById("total-items").innerText = items.toLocaleString();
 
     const tbody = document.getElementById("results-body");
-    tbody.innerHTML = Object.keys(POINTS_PER_REWARD).map(item => `
+    tbody.innerHTML = Object.keys(POINTS_PER_ITEM).map(item => `
         <tr>
             <td>${item}</td>
             <td class="result">${formatPercent(chances[item])}</td>
@@ -107,32 +110,33 @@ function showInputForm() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function showRuneForm() {
-    document.getElementById("calc-form").hidden = false;
-    document.getElementById("rune-footnote").hidden = false;
-    document.getElementById("rune-instruction").hidden = false;
+function showGemForm() {
+    document.getElementById("gem-form").hidden = false;
+    document.getElementById("gem-footnote").hidden = false;
+    document.getElementById("gem-instruction").hidden = false;
     document.getElementById("purples-form").hidden = true;
     document.getElementById("purples-footnote").hidden = true;
     document.getElementById("purples-instruction").hidden = true;
 }
 
 function showPurplesForm() {
-    document.getElementById("calc-form").hidden = true;
-    document.getElementById("rune-footnote").hidden = true;
-    document.getElementById("rune-instruction").hidden = true;
+    document.getElementById("gem-form").hidden = true;
+    document.getElementById("gem-footnote").hidden = true;
+    document.getElementById("gem-instruction").hidden = true;
     document.getElementById("purples-form").hidden = false;
     document.getElementById("purples-footnote").hidden = false;
     document.getElementById("purples-instruction").hidden = false;
 }
 
 function main() {
-  const calcForm = document.getElementById("calc-form");
-  calcForm.addEventListener("submit", (event) => {
+  const gemForm = document.getElementById("gem-form");
+  gemForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const deaths = document.getElementById("death-input").value;
-    const bloods = document.getElementById("blood-input").value;
-    const souls = document.getElementById("soul-input").value;
-    showResults(calcTotalPoints(deaths, bloods, souls));
+    const sapphires = document.getElementById("sapphire-input").value;
+    const emeralds = document.getElementById("emerald-input").value;
+    const rubies = document.getElementById("ruby-input").value;
+    const diamonds = document.getElementById("diamond-input").value;
+    showResults(calcTotalPoints(sapphires, emeralds, rubies, diamonds));
   })
 
   const purplesForm = document.getElementById("purples-form");
@@ -147,9 +151,9 @@ function main() {
     showPurplesForm();
   })
 
-  document.getElementById("runes-link").addEventListener("click", (event) => {
+  document.getElementById("gems-link").addEventListener("click", (event) => {
     event.preventDefault();
-    showRuneForm();
+    showGemForm();
   })
 
   const recalculateBtn = document.getElementById("recalculate-btn");
