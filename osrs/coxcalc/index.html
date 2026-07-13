@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoX Points Calc</title>
+    <link rel="stylesheet" href="./assets/index.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Chambers of Xeric</h1>
+            <h2>Points Calculator</h2>
+        </div>
+
+        <div id="input-section">
+            <div style="display: flex; justify-content: center;">
+                <img src="./assets/img/olm.png" alt="The Great Olm" width="200px">
+            </div>
+            <p class="header__subtitle">
+                <span id="rune-instruction">
+                    Have all your raids in the loot tracker and want to see your total points and stats?<br>
+                    Enter the number of death, blood, and soul runes received from Chambers below.
+                </span>
+                <span id="purples-instruction" hidden>Check your collection log and enter the total number of purples you've received.</span>
+            </p>
+            <form action="" id="calc-form">
+                <div class="fields-row">
+                    <div class="field">
+                        <label class="field__label">
+                            <span class="field__label-text">
+                                <img src="./assets/img/death-rune.png" alt="" class="field__icon">
+                                Death Runes
+                            </span>
+                            <input type="number" id="death-input" class="field__input" required/>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="field__label">
+                            <span class="field__label-text">
+                                <img src="./assets/img/blood-rune.png" alt="" class="field__icon">
+                                Blood Runes
+                            </span>
+                            <input type="number" id="blood-input" class="field__input" required/>
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label class="field__label">
+                            <span class="field__label-text">
+                                <img src="./assets/img/soul-rune.png" alt="" class="field__icon">
+                                Soul Runes
+                            </span>
+                            <input type="number" id="soul-input" class="field__input" required/>
+                        </label>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+            <p class="footnote" id="rune-footnote">
+                Don't have all your raids in the loot tracker?
+                <a href="#" id="purples-link" class="link">Use your collection log</a> for a rougher estimate.
+            </p>
+
+            <form action="" id="purples-form" hidden>
+                <div class="fields-row">
+                    <div class="field">
+                        <label class="field__label">
+                            <span class="field__label-text">Total Purples</span>
+                            <input type="number" id="purples-input" class="field__input" required/>
+                        </label>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+            <p class="footnote" id="purples-footnote" hidden>
+                <a href="#" id="runes-link" class="link">Use your rune counts</a> instead for a more precise estimate.
+            </p>
+        </div>
+
+        <section class="results" id="results" hidden>
+            <p class="results__header">
+                You've gained approximately <span id="total-points">0</span> total points from the Chambers of Xeric.<br>
+                You should expect <span id="total-items">0</span> unique items.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Chance to Obtain</th>
+                        <th>Expected Drops</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body"></tbody>
+            </table>
+            <div class="btn-container">
+                <button type="button" id="recalculate-btn" class="btn btn--secondary">Reset</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="./assets/index.js"></script>
+</body>
+
+</html>
