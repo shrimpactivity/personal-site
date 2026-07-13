@@ -1,7 +1,11 @@
+@import "../../assets/base.css";
+
 /* CSS Variables for dark teal / lime green color scheme */
 :root {
   --primary: #0d7377;
+  --primary-rgb: 13, 115, 119;
   --primary-light: #2dd4bf;
+  --primary-light-rgb: 45, 212, 191;
   --primary-dark: #063638;
   --secondary: #a6e22e;
   --tertiary: #dc9fff;
@@ -14,82 +18,23 @@
   --border: #204b41;
   --border-light: #2c6152;
   --shadow: rgba(45, 212, 191, 0.3);
+  --btn-text: #04211f;
 }
 
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--background);
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  font-size: 16px;
-}
-
-/* Page container */
+/* Page-specific overrides */
 .container {
   max-width: 760px;
-  margin: 0 auto;
-  padding: 20px 16px;
-}
-
-/* Header styling */
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.header h1 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: var(--primary-light);
-  margin-bottom: 0px;
-  margin-top: -8px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.header h2 {
-    color: var(--tertiary);
-    margin-top: -10px;
-    margin-bottom: 10px;
-    font-weight: 700;
 }
 
 .header__subtitle {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  font-weight: 400;
-  text-align: center;
   margin-bottom: 50px;
 }
 
-/* Footnote blurb below the form */
 .footnote {
   margin-top: 100px;
-  text-align: center;
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--text-muted);
 }
 
-.link {
-  color: var(--primary-light);
-  font-style: normal;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.link:hover {
-  color: var(--secondary);
-}
-
-/* Form fields */
+/* Form fields (gem inputs) */
 .fields-row {
   display: flex;
   justify-content: center;
@@ -157,122 +102,7 @@ body {
   -moz-appearance: textfield;
 }
 
-/* Button styling */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 28px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1;
-  text-decoration: none;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  min-height: 44px;
-  box-sizing: border-box;
-  user-select: none;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: #04211f;
-  box-shadow: 0 2px 6px var(--shadow), 0 0 0 1px var(--primary-dark);
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px var(--shadow), 0 0 0 1px var(--primary-dark);
-  filter: brightness(1.1);
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 3px var(--shadow), 0 0 0 1px var(--primary-dark);
-  filter: brightness(0.95);
-}
-
-.btn:focus-visible {
-  outline: 2px solid var(--primary-light);
-  outline-offset: 2px;
-}
-
-/* Button container */
-.btn-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-}
-
-/* Secondary (outline) button, e.g. Recalculate */
-.btn--secondary {
-  background: transparent;
-  color: var(--primary-light);
-  box-shadow: 0 0 0 2px var(--primary-light) inset;
-  padding: 8px 20px;
-  min-height: 36px;
-}
-
-.btn--secondary:hover {
-  background: rgba(45, 212, 191, 0.1);
-  box-shadow: 0 0 0 2px var(--primary-light) inset;
-  filter: none;
-}
-
-.btn--secondary:active {
-  background: rgba(45, 212, 191, 0.18);
-  box-shadow: 0 0 0 2px var(--primary-light) inset;
-  filter: none;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 16px;
-  margin-top: 16px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-th {
-  padding: 14px 18px;
-  text-align: left;
-  font-weight: 600;
-  background: var(--primary-dark);
-  color: var(--text-primary);
-  border-bottom: 2px solid var(--primary);
-  font-size: 17px;
-  white-space: nowrap;
-}
-
-td {
-  padding: 8px 18px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: middle;
-  font-size: 16px;
-}
-
-tr:nth-child(even) {
-  background: rgba(45, 212, 191, 0.05);
-}
-
-tbody tr:hover {
-  background: var(--surface-hover);
-  transition: background-color 0.2s ease;
-}
-
-/* Special styling for result cells */
-.result {
-  font-weight: 600;
-  color: var(--secondary);
-  text-align: left;
-  font-size: 16px;
-}
-
-/* Results card intro line */
+/* Results header line */
 .results__header {
   font-size: 1rem;
   color: var(--text-secondary);
@@ -284,67 +114,13 @@ tbody tr:hover {
 }
 
 .results__header #total-items {
-    font-weight: 700;
-    color: var(--tertiary);
+  font-weight: 700;
+  color: var(--tertiary);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
-  .container {
-    padding: 16px 12px;
-  }
-
-  .header h1 {
-    font-size: 1.8rem;
-  }
-
-  .header__subtitle {
-    font-size: 1rem;
-  }
-
-  .card {
-    padding: 16px;
-  }
-
-  table {
-    font-size: 15px;
-  }
-
-  th {
-    padding: 12px 14px;
-    font-size: 16px;
-  }
-
-  td {
-    padding: 10px 14px;
-    font-size: 15px;
-  }
-
   .field__input {
     padding: 7px 10px;
     font-size: 15px;
-  }
-
-  .btn {
-    padding: 10px 24px;
-    font-size: 15px;
-    min-height: 40px;
-  }
-
-  .result {
-    font-size: 15px;
-  }
-}
-
-/* Subtle animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

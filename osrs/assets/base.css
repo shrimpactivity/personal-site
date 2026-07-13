@@ -1,0 +1,254 @@
+/* Shared base styles for the OSRS calculator tools.
+   Each tool's own stylesheet @imports this file and supplies its own
+   :root color variables (--primary, --primary-rgb, --primary-light,
+   --primary-light-rgb, --primary-dark, --secondary, --tertiary,
+   --background, --surface, --surface-hover, --text-primary,
+   --text-secondary, --text-muted, --border, --border-light, --shadow,
+   --btn-text), plus any page-specific overrides/rules. */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+/* Page container */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* Shared monster image wrapper */
+.monster-image {
+  display: flex;
+  justify-content: center;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin-top: -8px;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header h2 {
+  color: var(--tertiary);
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.header__subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Footnote blurb below the form */
+.footnote {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.link {
+  color: var(--primary-light);
+  font-style: normal;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--secondary);
+}
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  box-sizing: border-box;
+  user-select: none;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--btn-text);
+  box-shadow: 0 2px 6px var(--shadow), 0 0 0 1px var(--primary-dark);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--shadow), 0 0 0 1px var(--primary-dark);
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px var(--shadow), 0 0 0 1px var(--primary-dark);
+  filter: brightness(0.95);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* Button container */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Secondary (outline) button, e.g. Reset/Recalculate */
+.btn--secondary {
+  background: transparent;
+  color: var(--primary-light);
+  box-shadow: 0 0 0 2px var(--primary-light) inset;
+  padding: 8px 20px;
+  min-height: 36px;
+}
+
+.btn--secondary:hover {
+  background: rgba(var(--primary-light-rgb), 0.1);
+  box-shadow: 0 0 0 2px var(--primary-light) inset;
+  filter: none;
+}
+
+.btn--secondary:active {
+  background: rgba(var(--primary-light-rgb), 0.18);
+  box-shadow: 0 0 0 2px var(--primary-light) inset;
+  filter: none;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  margin: 16px 0 20px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+th {
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 600;
+  background: var(--primary-dark);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--primary);
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+td {
+  padding: 8px 18px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+/* Alternate row styling */
+tr:nth-child(even) {
+  background: rgba(var(--primary-rgb), 0.05);
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+  background: var(--surface-hover);
+  transition: background-color 0.2s ease;
+}
+
+/* Special styling for result cells */
+.result {
+  font-weight: 600;
+  color: var(--secondary);
+  text-align: left;
+  font-size: 16px;
+}
+
+/* Special row styling for a highlighted row, e.g. "Any Item" */
+.highlight-row {
+  background: rgba(var(--primary-rgb), 0.1) !important;
+  font-weight: 600;
+}
+
+.highlight-row td {
+  border-top: 3px solid var(--border-light);
+  border-bottom: 3px solid var(--border-light);
+  font-size: 1.1em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header__subtitle {
+    font-size: 1rem;
+  }
+
+  table {
+    font-size: 15px;
+  }
+
+  th {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  td {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 15px;
+    min-height: 40px;
+  }
+
+  .result {
+    font-size: 15px;
+  }
+}
