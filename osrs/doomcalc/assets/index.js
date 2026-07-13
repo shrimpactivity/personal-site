@@ -76,7 +76,6 @@ function calculate() {
     inversePetChances[level] = (1 - petRate) ** count;
   });
 
-
   const clothChance = calculateItemChance(inverseItemChances);
   const staffChance = calculateItemChance(inverseItemChances, [2]);
   const bootsChance = calculateItemChance(inverseItemChances, [2, 3]);
@@ -98,27 +97,16 @@ function calculate() {
   document.getElementById('boots-drops').innerText = formatNum(bootsDrops)
   document.getElementById('pet-drops').innerText = formatNum(petDrops)
   document.getElementById('total-drops').innerText = formatNum(clothDrops + staffDrops + bootsDrops)
+
+  document.getElementById('input-section').hidden = true;
+  document.getElementById('results').hidden = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function addFormScroll() {
-  const form = document.getElementById('calc-form');
-  const resultsSection = document.getElementById('results');
-
-  form.addEventListener('submit', function (e) {
-    setTimeout(() => {
-      resultsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-
-      resultsSection.setAttribute('tabindex', '-1');
-      resultsSection.focus();
-
-      setTimeout(() => {
-        resultsSection.removeAttribute('tabindex');
-      }, 100);
-    }, 50);
-  });
+function showInputForm() {
+  document.getElementById('results').hidden = true;
+  document.getElementById('input-section').hidden = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function main() {
@@ -127,7 +115,9 @@ function main() {
     event.preventDefault();
     calculate();
   })
-  addFormScroll();
+
+  const recalculateBtn = document.getElementById("recalculate-btn");
+  recalculateBtn.addEventListener("click", showInputForm);
 }
 
 document.addEventListener("DOMContentLoaded", main);

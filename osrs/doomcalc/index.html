@@ -11,17 +11,17 @@
 <body>
   <div class="container">
     <header class="header">
-      <img src="./assets/Doom_of_Mokhaiotl.png" alt="The Doom of Mokhaiotl">
       <h1>Doom of Mokhaiotl</h1>
-      <h3>Drop Calculator</h3>
-      <p>Enter your completions for each delve level, starting with level 2.</p>
-      <p style="font-style: italic; font-size: 0.9em;">This information can be found on the scoreboard outside of
-        Mokha's arena.</p>
+      <h2>Loot Calculator</h2>
     </header>
 
-    <main class="card">
+    <div id="input-section">
+      <div class="doom-image">
+        <img src="./assets/doom.png" alt="The Doom of Mokhaiotl">
+      </div>
+      <p class="header__subtitle">Enter your completions for each delve level, starting with level 2.</p>
       <form id="calc-form">
-        <table>
+        <table class="input-table">
           <thead>
             <tr>
               <th>Delve Level</th>
@@ -67,9 +67,10 @@
           <button type="submit" class="btn">Calculate</button>
         </div>
       </form>
-    </main>
+      <p class="footnote">This information can be found on the scoreboard outside of Mokha's arena.</p>
+    </div>
 
-    <section class="card results-card" id="results">
+    <section id="results" hidden>
       <table>
         <thead>
           <tr>
@@ -106,6 +107,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="btn-container">
+        <button type="button" id="recalculate-btn" class="btn btn--secondary">Reset</button>
+      </div>
     </section>
   </div>
 
