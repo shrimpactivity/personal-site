@@ -118,6 +118,80 @@
   color: var(--tertiary);
 }
 
+/* Toggle Container */
+.field--toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Custom Checkbox Track */
+.field--toggle input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 44px;
+  height: 22px;
+  background-color: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Toggle Switch Knob */
+.field--toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  transition: all 0.25s cubic-bezier(0.3, 1.5, 0.7, 1);
+}
+
+/* Hover State */
+.field--toggle input[type="checkbox"]:hover {
+  border-color: var(--border-light);
+}
+
+/* Focus State */
+.field--toggle input[type="checkbox"]:focus-visible {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px var(--shadow);
+}
+
+/* Active / Checked State (Switches track to dark teal and knob to lime green) */
+.field--toggle input[type="checkbox"]:checked {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-light);
+}
+
+.field--toggle input[type="checkbox"]:checked::before {
+  transform: translateX(22px);
+  background-color: var(--secondary); /* Accent lime green */
+}
+
+/* Label text consistent with your form field styling */
+.field--toggle .field__label-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+/* Light up the label text slightly on hover */
+.field--toggle:hover .field__label-text {
+  color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
   .field__input {
     padding: 7px 10px;
